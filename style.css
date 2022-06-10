@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+.error-text {
+    color: red;
+    font-size: 14px;
+    font-style:italic;
+    display: block;
+
+}
+
+/* show password */
+.fa-eye {
+    color: blue;
+    font-size: 25px;
+}
