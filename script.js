@@ -61,31 +61,13 @@ formElement.addEventListener('submit', function(event) {
     if (Object.keys(errors).length == 0) {
         form.submit();
     }
-
     console.log(errors);
-
-
 })
-
-
-// let errors = {
-//     username: 'Useraname can not be empty and  must be more then 5 characters',
-    // password2: 'Passwords do not macth',
-    // agree: 'You must agree our terms and conditions',
-    // gender: 'Please select your gender'
-
-// }
-
 
 
 // show hide password
 let passwordShow = document.getElementById('showpassword');
 let toggleIcon = document.getElementById('toggleIcon');
-
-// function showHidePassword() {
-
-// }
-
 
 showHidePassword = () => {
     if (passwordShow.type == 'password') {
@@ -98,5 +80,99 @@ showHidePassword = () => {
 }
 
 toggleIcon.addEventListener('click', showHidePassword);
+
+
+
+// email regex
+function validation() {
+    let formEmail = document.getElementById('form-wraper');
+    let email = document.getElementById('myemail').value;
+    let emailInput = document.getElementById('myemail');
+    let spanEmail = document.getElementById('email-text');
+
+    let pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (email.match(pattern)) {
+        formEmail.classList.add('valid');
+        formEmail.classList.remove('invalid');
+        spanEmail.innerHTML = 'Your Email is Valid';
+        // alert('')
+        spanEmail.style.color = 'green';
+        emailInput.style.borderColor = 'green';
+    } else {
+       
+        formEmail.classList.remove('valid');
+        formEmail.classList.add('invalid');
+        spanEmail.innerHTML = 'Please enter valid email address';
+        spanEmail.style.color = 'red';
+        emailInput.style.borderColor = 'red';
+    }
+
+    if (email == '') {
+        formEmail.classList.remove('valid');
+        formEmail.classList.remove('invalid');
+        spanEmail.innerHTML = '';
+    }
+
+}
+
+
+// localstorage & sessionstorage
+let counterUser = sessionStorage.getItem('counter');
+let newValue;
+
+if (!counterUser) {
+    newValue = 1;
+} else {
+    newValue = parseInt(counterUser) + 1;
+}
+
+sessionStorage.setItem('counter',newValue);
+document.getElementById('counter').textContent = sessionStorage.getItem('counter');
+
+
+
+// cookies practice
+
+document.getElementById('cookiesLogin').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    let checkboxCookies = document.getElementById('save');
+
+    if (checkboxCookies.checked) {
+        let usernameCookies = document.getElementById('usernamecookies').value;
+        Cookies.set('usernameSave',usernameCookies);
+    } else {
+        Cookies.remove('usernameSave');
+    }
+
+    event.target.submit();
+})
+
+let savedUsernameCookiesValue = Cookies.get('usernameSave');
+
+if (savedUsernameCookiesValue) {
+    document.getElementById('usernamecookies').value = savedUsernameCookiesValue;
+    document.getElementById('save').checked = true;
+}
+
+
+
+// this
+let user = {
+    name: 'giorgi',
+
+    printName: function() {
+        console.log(this.name);  
+    }
+}
+let user2 = {
+    name: 'irakli',
+}
+let printName2 = user.printName.bind(user);
+
+printName2();
+
+
 
 

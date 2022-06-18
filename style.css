@@ -19,3 +19,37 @@ a {
     color: blue;
     font-size: 25px;
 }
+
+/* email validation */
+#email-text {
+    display: block;
+}
+#form-wraper {
+    position: relative;
+}
+input[type="email"]:focus {
+    outline:none;
+}
+.input-box {
+    position: relative;
+    width:700px;
+}
+.email {
+    position: relative;
+}
+.title {
+    font-size: 30px;
+    color: blue;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+#form-wraper.invalid .email::before {
+    content: '\2612';
+    position: absolute;
+    right: 100px; 
+}
+#form-wraper.valid .email::before {
+    content: '\2611';
+    position: absolute;
+    right: 100px; 
+}

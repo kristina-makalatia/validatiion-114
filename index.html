@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h3 class="title">Form Validation</h3>
     <form id="registration" action="" method="POST">
         <div>
             <label for="user">Username</label>
@@ -48,10 +50,39 @@
     
 
     <!-- show / hide password -->
+    <h3 class="title"> Show/ Hide Password </h3>
     <div class="password-input">
         <input type="password" id="showpassword" name="showpass" placeholder="Password">
         <i id="toggleIcon" class="fa-solid fa-eye"></i>
     </div>
+
+    <!-- email validation -->
+    <h3 class="title">Email regex(regular expression)</h3>
+    <form action="" id="form-wraper">
+        <div class="email">
+            <input class="input-box" type="email" id="myemail" name="email" placeholder="Enter Your Email" onkeydown="validation()">
+            <span id="email-text"></span>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+ 
+
+    <!-- localstorage, sessionstorage, cookies -->
+    <div id="counter"></div>
+
+
+    <!-- Cookies example -->
+    <h3 class="title">Cookies</h3>
+    <form action="" id="cookiesLogin">
+        <div>
+            <input type="text" id="usernamecookies">
+            <input type="checkbox" id="save">
+        </div>
+        <div>
+            <input type="password" id="passwcookies">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
 
 
 
